@@ -1,0 +1,8 @@
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
+<app-filters (filterChange)="onFilterChange($event)"></app-filters>
+<div class="recipe-list">
+  <div *ngFor="let recipe of recipes" (click)="selectRecipe(recipe.id)">
+    <h3>{{ recipe.title }}</h3>
+    <p>{{ recipe.description }}</p>
+  </div>
+</div>

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.recipeApp</groupId>
-	<artifactId>recipe</artifactId>
+	<artifactId>recipe-app-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>recipe</name>
 	<description>Recipes App server project </description>

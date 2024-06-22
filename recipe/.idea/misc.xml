@@ -4,6 +4,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/recipe/pom.xml" />
+        <option value="$PROJECT_DIR$/recipe-app-server/pom.xml" />
       </list>
     </option>
   </component>
