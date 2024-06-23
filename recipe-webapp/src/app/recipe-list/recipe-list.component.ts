@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../models/recipe.model';
@@ -11,6 +11,6 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent{
-  @Input() recipes !: Recipe[];
+  @Input() recipes !: Signal<Recipe[]>;
   
 }

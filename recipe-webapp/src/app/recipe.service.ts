@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal, signal } from '@angular/core';
 import { Recipe } from './models/recipe.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,21 @@ import { Recipe } from './models/recipe.model';
 export class RecipeService {
   private apiUrl = 'http://localhost:8080/api/recipes'; // Replace with your API URL
 
-  async getRecipes(): Promise<Recipe[]> {
-    const data = await fetch(this.apiUrl);
-    return await data.json();
+  private dataSignal= signal<Recipe[]>([]);
+
+  constructor(private http: HttpClient) {}
+
+  fetchData(): void{
+    this.http.get<Recipe[]>(this.apiUrl).subscribe((data)=>{this.dataSignal.set(data);})
+  }
+  getRecipes(): Signal<Recipe[]> {
+    return this.dataSignal;
   }
 
+  
+
+
+  
   // searchRecipes(query: string, filters: any): Observable<Recipe[]> {
   //   // Construct query params based on filters
   //   let params = new HttpParams().set('q', query);
