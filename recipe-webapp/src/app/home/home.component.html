@@ -1,5 +1,9 @@
-<div class="home">
-  <h1>Welcome to RecipeApp</h1>
-  <p>Discover thousands of delicious recipes.</p>
-  <a routerLink="/recipes" class="btn">Browse Recipes</a>
-</div>
+<section>
+  <form>
+    <input type="text" placeholder="Search for recipes...">
+    <button type="button">Search</button>
+  </form>
+</section>
+<section>
+  <app-recipe-list [recipes]="recipeList"></app-recipe-list>
+</section>

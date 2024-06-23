@@ -14,9 +14,9 @@ export interface Recipe {
     id: string;
     title: string;
     description: string;
-    instructions: string[];
-    ingredients: Ingredient[];
-    nutrition: Nutrition;
-    createdAt: Date;
+    // instructions: string[];
+    // ingredients: Ingredient[];
+    // nutrition: Nutrition;
+    // createdAt: Date;
   }
   
