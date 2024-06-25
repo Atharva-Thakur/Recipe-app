@@ -11,6 +11,6 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent{
-  @Input() recipes !: Signal<Recipe[]>;
+  @Input() recipes !: Recipe[];
   
 }

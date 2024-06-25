@@ -1,7 +1,7 @@
 <section>
-  <div *ngFor="let recipe of recipes()">
+  <div *ngFor="let recipe of recipes">
     <h3>{{ recipe.title }}</h3>
     <p>{{ recipe.description }}</p>
-    <a>learn more...</a>
+    <a [routerLink]="['/details',recipe.id]">learn more...</a>
   </div>
 </section>

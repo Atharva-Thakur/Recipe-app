@@ -5,18 +5,18 @@ export interface Ingredient {
   
 export interface Nutrition {
     calories: number;
-    fat: number;
+    fats: number;
     carbs: number;
-    protein: number;
+    proteins: number;
   }
   
 export interface Recipe {
     id: string;
     title: string;
     description: string;
-    // instructions: string[];
-    // ingredients: Ingredient[];
-    // nutrition: Nutrition;
-    // createdAt: Date;
+    instructions: string[];
+    ingredients: Ingredient[];
+    nutrition: Nutrition;
+    createdAt: Date;
   }
   

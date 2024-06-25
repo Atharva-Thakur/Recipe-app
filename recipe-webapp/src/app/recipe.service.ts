@@ -19,7 +19,10 @@ export class RecipeService {
     return this.dataSignal;
   }
 
-  
+  async getRecipeById(id: string): Promise<Recipe | undefined> {
+    const data = await fetch(`${this.apiUrl}/${id}`);
+    return await data.json() ?? {};
+  }
 
 
   
