@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RecipeService {
-  private apiUrl = 'http://localhost:8080/api/recipes'; // Replace with your API URL
+  private apiUrl = 'http://localhost:8082/api/recipes'; // Replace with your API URL
 
   private dataSignal= signal<Recipe[]>([]);
 
