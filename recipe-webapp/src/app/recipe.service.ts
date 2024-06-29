@@ -1,6 +1,7 @@
 import { Injectable, Signal, signal } from '@angular/core';
 import { Recipe } from './models/recipe.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,26 @@ import { HttpClient } from '@angular/common/http';
 export class RecipeService {
   private apiUrl = 'http://localhost:8082/api/recipes'; // Replace with your API URL
 
-  private dataSignal= signal<Recipe[]>([]);
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: HttpClient) {}
-
-  fetchData(): void{
-    this.http.get<Recipe[]>(this.apiUrl).subscribe((data)=>{this.dataSignal.set(data);})
-  }
-  getRecipes(): Signal<Recipe[]> {
-    return this.dataSignal;
+  getAllRecipes(): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  async getRecipeById(id: string): Promise<Recipe | undefined> {
-    const data = await fetch(`${this.apiUrl}/${id}`);
-    return await data.json() ?? {};
+  getRecipeById(id: string): Observable<Recipe> {
+    return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
+  }
+
+  createRecipe(recipe: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(this.apiUrl, recipe);
+  }
+
+  updateRecipe(id: string, recipe: Recipe): Observable<Recipe> {
+    return this.http.put<Recipe>(`${this.apiUrl}/${id}`, recipe);
+  }
+
+  deleteRecipe(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
 

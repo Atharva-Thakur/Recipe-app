@@ -17,8 +17,10 @@ export class RecipeDetailComponent{
 
   constructor() {
     const id = this.route.snapshot.params['id'];
-    this.recipeService.getRecipeById(id).then((recipe) => {
-      this.recipe = recipe;
+    this.recipeService.getRecipeById(id).subscribe((data: Recipe) => {
+      this.recipe = data;
     });
   }
+
+
 }
