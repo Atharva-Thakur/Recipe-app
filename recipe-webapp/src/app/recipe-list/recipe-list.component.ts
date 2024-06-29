@@ -4,6 +4,7 @@ import { RecipeService } from '../recipe.service';
 import { Recipe } from '../models/recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
@@ -12,12 +13,13 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent{
-  recipeList : Signal<Recipe[]>;
+  recipeList : Recipe[] | undefined;
   recipeService: RecipeService = inject(RecipeService);
   constructor() {
-    this.recipeList = this.recipeService.getRecipes();
+    this.recipeService.getAllRecipes().subscribe((data: Recipe[]) => {
+      this.recipeList = data;
+    });
   }
-  ngOnInit(): void {
-    this.recipeService.fetchData();
-  }
+
+  
 }
