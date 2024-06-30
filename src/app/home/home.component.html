@@ -1,8 +1,4 @@
-<section>
-  <form>
-    <input type="text" placeholder="Search for recipes..." [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
-  </form>
-</section>
+<app-search (searchEvent)="setSearchText($event)"></app-search>
 <section>
   <app-recipe-list [searchText]=searchText></app-recipe-list>
 </section>
