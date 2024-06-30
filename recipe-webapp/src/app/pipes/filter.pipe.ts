@@ -1,25 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Recipe } from '../models/recipe.model';
+import { pipe } from 'rxjs';
 
-@Pipe({ name: 'appFilter' })
+@Pipe({ name: 'appFilter', standalone: true})
 export class FilterPipe implements PipeTransform {
-  /**
-   * Pipe filters the list of elements based on the search text provided
-   *
-   * @param items list of elements to search in
-   * @param searchText search string
-   * @returns list of elements filtered by search text or []
-   */
+
   transform(items: any[], searchText: string): any[] {
-    if (!items) {
-      return [];
-    }
     if (!searchText) {
       return items;
     }
-    searchText = searchText.toLocaleLowerCase();
+    searchText = searchText.toLowerCase();
 
-    return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+    return items.filter((it) => {
+      return it.includes(searchText);
     });
   }
 }
