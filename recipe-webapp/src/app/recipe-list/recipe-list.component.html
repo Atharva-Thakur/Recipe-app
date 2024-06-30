@@ -1,5 +1,5 @@
 <section>
-  <div *ngFor="let recipe of recipeList">
+  <div *ngFor="let recipe of recipeList | appFilter: searchText">
     <app-recipe [recipe]="recipe"></app-recipe>
   </div>
 </section>

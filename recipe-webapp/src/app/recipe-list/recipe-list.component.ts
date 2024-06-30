@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../models/recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
-import { PipesModule } from '../pipes/pipes.module';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FilterPipe } from '../pipes/filter.pipe';
 @Component({
   selector: 'app-recipe-list',
