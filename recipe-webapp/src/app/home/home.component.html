@@ -1,9 +1,8 @@
 <section>
   <form>
-    <input type="text" placeholder="Search for recipes..." #filter>
-    <button type="button" >Search</button>
+    <input type="text" placeholder="Search for recipes..." [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
   </form>
 </section>
 <section>
-  <app-recipe-list></app-recipe-list>
+  <app-recipe-list [searchText]=searchText></app-recipe-list>
 </section>
