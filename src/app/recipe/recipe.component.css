@@ -2,26 +2,30 @@
     background: var(--accent-color);
     border-radius: 20px;
     padding-bottom: 20px;
+    width: 270px;
 }
 .recipe-heading {
     /* color: var(--primary-color); */
     padding: 10px 10px 0 20px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .recipe-photo {
-    height: 250px;
-    width: 100%;
+    margin-bottom: 0;
     object-fit: cover;
     border-radius: 30px 30px 0 0;
 }
 .recipe-description {
-padding : 5px 5px 5px 20px;
+    padding : 5px 5px 5px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 250px;
 }
 
 
 section.recipe a {
-    padding-left: 20px;
     text-decoration: none;
-    color: var(--primary-color);
+    color: black;
 }
 section.recipe a::after {
     content: '\203A';
