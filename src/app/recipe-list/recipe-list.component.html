@@ -1,4 +1,4 @@
-<section>
+<section class="results">
   <div *ngFor="let recipe of recipeList | appFilter: searchText">
     <app-recipe [recipe]="recipe"></app-recipe>
   </div>

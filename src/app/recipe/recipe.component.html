@@ -1,5 +1,5 @@
-<section>
-    <h3>{{ recipe.title }}</h3>
-    <p>{{ recipe.description }}</p>
+<section class="recipe">
+    <h2 class="recipe-heading">{{ recipe.title }}</h2>
+    <p class="recipe-description">{{ recipe.description }}</p>
     <a [routerLink]="['/details',recipe.id]">learn more...</a>
 </section>
