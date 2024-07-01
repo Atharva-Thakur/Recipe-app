@@ -4,6 +4,7 @@
     align-items: center;
     width: 100%; /* or any desired width */
     height: 100%; /* or any desired height */
+    margin: 10px;
   }
   
 input[type='text'] {
