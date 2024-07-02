@@ -5,10 +5,11 @@ import { FilterPipe } from '../pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { RecipeComponent } from '../recipe/recipe.component';
 import { SearchComponent } from '../search/search.component';
+import { RecipeAddComponent } from '../recipe-add/recipe-add.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent],
+  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent, RecipeAddComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
