@@ -1,0 +1,57 @@
+<form [formGroup]="recipeForm" (ngSubmit)="handleSubmit()">
+    <label>
+      Recipe title
+      <input type="text" formControlName="title">
+    </label>
+    <label>
+      Recipe description
+      <input type="text" formControlName="description">
+    </label>
+  
+    <div formArrayName="instructions">
+      <div *ngFor="let instruction of instructions.controls; let i = index">
+        <label>
+          Instruction {{ i + 1 }}
+          <input [formControlName]="i" type="text">
+        </label>
+      </div>
+      <button type="button" (click)="addInstruction()">Add Instruction</button>
+    </div>
+  
+    <div formArrayName="ingredients">
+      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+        <label>
+          Ingredient Name
+          <input formControlName="name" type="text">
+        </label>
+        <label>
+          Quantity
+          <input formControlName="quantity" type="text">
+        </label>
+        <button type="button" (click)="removeIngredient(i)">Remove</button>
+      </div>
+      <button type="button" (click)="addIngredient()">Add Ingredient</button>
+    </div>
+  
+    <div formGroupName="nutrition">
+      <label>
+        Calories
+        <input formControlName="calories" type="number">
+      </label>
+      <label>
+        Fats
+        <input formControlName="fats" type="number">
+      </label>
+      <label>
+        Carbs
+        <input formControlName="carbs" type="number">
+      </label>
+      <label>
+        Proteins
+        <input formControlName="proteins" type="number">
+      </label>
+    </div>
+  
+    <button type="submit">Submit</button>
+  </form>
+  
