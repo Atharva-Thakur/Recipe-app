@@ -1,10 +1,11 @@
 import { Component, Input, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeService } from '../recipe.service';
+import { RecipeService } from '../services/recipe.service';
 import { Recipe } from '../models/recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FilterPipe } from '../pipes/filter.pipe';
+import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-recipe-list',
   standalone: true,
@@ -18,13 +19,14 @@ export class RecipeListComponent{
   recipeService: RecipeService = inject(RecipeService);
 
   @Input() searchText: string = '';
-  constructor() {
+  constructor(private userService: UserService) {
     this.recipeService.getAllRecipes().subscribe((data: Recipe[]) => {
       this.recipeList = data;
     });
     this.fiteredRecipeList.push(this.recipeList[1]);
     // this.filterRecipes();
   }  
+
   
 
 

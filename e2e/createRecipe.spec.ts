@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('add recipe', async ({ page }) => {
     await page.goto('http://localhost:4200/');
     await page.getByLabel('Recipe title').click();
-    await page.getByLabel('Recipe title').fill('Vegetable Tofu Stir-Fry');
+    await page.getByLabel('Recipe title').fill('Pulav');
     await page.getByLabel('Recipe description').click();
     await page.getByLabel('Recipe description').fill('A delicious and nutritious stir-fry recipe with tofu and assorted vegetables.');
     await page.getByLabel('Instruction').click();

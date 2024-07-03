@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RecipeService } from '../recipe.service';
+import { RecipeService } from '../services/recipe.service';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Recipe } from '../models/recipe.model';
 import { CommonModule } from '@angular/common';
