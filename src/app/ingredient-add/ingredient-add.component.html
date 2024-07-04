@@ -1,0 +1,21 @@
+<!-- ingredient-form.component.html -->
+<h3>Add Ingredient</h3>
+<form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" />
+    </div>
+  
+    <div>
+      <label for="category">Category</label>
+      <input id="category" formControlName="category" />
+    </div>
+  
+    <div>
+      <label for="units">Units</label>
+      <input id="units" formControlName="units" />
+    </div>
+  
+    <button type="submit" [disabled]="!ingredientForm.valid">Add Ingredient</button>
+  </form>
+  

@@ -1,57 +1,56 @@
-<form [formGroup]="recipeForm" (ngSubmit)="handleSubmit()">
-    <label>
-      Recipe title
-      <input type="text" formControlName="title">
-    </label>
-    <label>
-      Recipe description
-      <input type="text" formControlName="description">
-    </label>
-  
-    <div formArrayName="instructions">
-      <div *ngFor="let instruction of instructions.controls; let i = index">
-        <label>
-          Instruction {{ i + 1 }}
-          <input [formControlName]="i" type="text">
-        </label>
-      </div>
-      <button type="button" (click)="addInstruction()">Add Instruction</button>
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="title">Title</label>
+    <input id="title" formControlName="title" />
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" />
+  </div>
+
+  <div formArrayName="instructions">
+    <label>Instructions</label>
+    <div *ngFor="let instruction of instructions.controls; let i = index">
+      <input [formControlName]="i" />
+      <button type="button" (click)="removeInstruction(i)">Remove</button>
     </div>
-  
-    <div formArrayName="ingredients">
-      <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
-        <label>
-          Ingredient Name
-          <input formControlName="name" type="text">
-        </label>
-        <label>
-          Quantity
-          <input formControlName="quantity" type="text">
-        </label>
+    <button type="button" (click)="addInstruction()">Add Instruction</button>
+  </div>
+
+  <div formArrayName="ingredients">
+    <label>Ingredients</label>
+    <div *ngFor="let ingredientCtrl of ingredientsArray.controls; let i = index">
+      <div [formGroupName]="i">
+        <select formControlName="ingredient">
+          <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient.id" >{{ ingredient.name }}</option>
+        </select>
+        <input formControlName="quantity" placeholder="Quantity" />
         <button type="button" (click)="removeIngredient(i)">Remove</button>
       </div>
-      <button type="button" (click)="addIngredient()">Add Ingredient</button>
     </div>
+    <button type="button" (click)="addIngredient()">Add Ingredient</button>
+  </div>
   
-    <div formGroupName="nutrition">
-      <label>
-        Calories
-        <input formControlName="calories" type="number">
-      </label>
-      <label>
-        Fats
-        <input formControlName="fats" type="number">
-      </label>
-      <label>
-        Carbs
-        <input formControlName="carbs" type="number">
-      </label>
-      <label>
-        Proteins
-        <input formControlName="proteins" type="number">
-      </label>
+
+  <div formGroupName="nutrition">
+    <div>
+      <label for="calories">Calories</label>
+      <input id="calories" formControlName="calories" />
     </div>
-  
-    <button type="submit">Submit</button>
-  </form>
-  
+    <div>
+      <label for="carbs">Carbs</label>
+      <input id="carbs" formControlName="carbs" />
+    </div>
+    <div>
+      <label for="proteins">Proteins</label>
+      <input id="proteins" formControlName="proteins" />
+    </div>
+    <div>
+      <label for="fats">Fats</label>
+      <input id="fats" formControlName="fats" />
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!recipeForm.valid">Add Recipe</button>
+</form>

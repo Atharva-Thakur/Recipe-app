@@ -1,7 +1,8 @@
-import { Injectable, Signal, signal } from '@angular/core';
-import { Recipe } from '../models/recipe.model';
+// recipe.service.ts
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Recipe } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,16 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getAllRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.apiUrl,{ withCredentials: true });
+    return this.http.get<Recipe[]>(this.apiUrl, { withCredentials: true });
   }
 
   getRecipeById(id: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
-  }
-
-  getRecipeByTitle(title: string): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/title/${title}`);
+    return this.http.get<Recipe>(`${this.apiUrl}/${id}`,{ withCredentials: true });
   }
 
   createRecipe(recipe: Recipe): Observable<Recipe> {
-    return this.http.post<Recipe>(this.apiUrl, recipe);
+    console.log(recipe);
+    return this.http.post<Recipe>(this.apiUrl, recipe, { withCredentials: true });
   }
 
   updateRecipe(id: string, recipe: Recipe): Observable<Recipe> {
@@ -34,19 +32,4 @@ export class RecipeService {
   deleteRecipe(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
-
-
-  
-  // searchRecipes(query: string, filters: any): Observable<Recipe[]> {
-  //   // Construct query params based on filters
-  //   let params = new HttpParams().set('q', query);
-  //   Object.keys(filters).forEach(key => {
-  //     params = params.set(key, filters[key]);
-  //   });
-  //   return this.http.get<Recipe[]>(this.apiUrl, { params });
-  // }
-
-  // getRecipeById(id: string): Observable<Recipe> {
-  //   return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
-  // }
 }

@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { RecipeComponent } from '../recipe/recipe.component';
 import { SearchComponent } from '../search/search.component';
 import { RecipeAddComponent } from '../recipe-add/recipe-add.component';
+import { IngredientAddComponent } from '../ingredient-add/ingredient-add.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent, RecipeAddComponent],
+  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent, RecipeAddComponent, IngredientAddComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
