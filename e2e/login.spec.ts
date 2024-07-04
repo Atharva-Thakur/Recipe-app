@@ -8,5 +8,5 @@ test('test', async ({ page }) => {
   await page.locator('input[name="password"]').click();
   await page.locator('input[name="password"]').fill('thakur');
   await page.getByRole('button', { name: 'Login' }).click();
-  await page.getByRole('link', { name: 'User' }).click();
+  await expect(page.locator('.alert.alert-success')).toHaveText(/Logged in as ROLE_USER\./);
 });

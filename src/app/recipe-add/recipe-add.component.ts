@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RecipeService } from '../services/recipe.service';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Recipe } from '../models/recipe.model';
+import { Ingredient, Recipe } from '../models/recipe.model';
 import { CommonModule } from '@angular/common';
+import { IngredientService } from '../services/ingredient.service';
 @Component({
   selector: 'app-recipe-add',
   standalone: true,
@@ -10,26 +11,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './recipe-add.component.html',
   styleUrl: './recipe-add.component.css'
 })
-export class RecipeAddComponent {
-  recipeService: RecipeService = inject(RecipeService);
-  recipe: Recipe | undefined;
-  recipeForm: FormGroup = new FormGroup({});
+export class RecipeAddComponent implements OnInit {
+  recipeForm: FormGroup;
+  ingredients: Ingredient[] = [];
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
+  constructor(
+    private fb: FormBuilder,
+    private recipeService: RecipeService,
+    private ingredientService: IngredientService
+  ) {
     this.recipeForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      instructions: this.fb.array([this.fb.control('')]),
-      ingredients: this.fb.array([this.createIngredient()]),
+      instructions: this.fb.array([this.fb.control('', Validators.required)]),
+      ingredients: this.fb.array([]),
       nutrition: this.fb.group({
-        calories: [0, Validators.required],
-        fats: [0, Validators.required],
-        carbs: [0, Validators.required],
-        proteins: [0, Validators.required]
-      }),
-      createdAt: [new Date(), Validators.required]
+        calories: [0, [Validators.required, Validators.min(0)]],
+        carbs: [0, [Validators.required, Validators.min(0)]],
+        proteins: [0, [Validators.required, Validators.min(0)]],
+        fats: [0, [Validators.required, Validators.min(0)]]
+      })
+    });
+  }
+
+  ngOnInit(): void {
+    this.ingredientService.getIngredients().subscribe(data => {
+      this.ingredients = data;
     });
   }
 
@@ -37,41 +44,51 @@ export class RecipeAddComponent {
     return this.recipeForm.get('instructions') as FormArray;
   }
 
-  get ingredients() {
+  get ingredientsArray() {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
-  createIngredient(): FormGroup {
-    return this.fb.group({
-      name: ['', Validators.required],
-      quantity: ['', Validators.required]
-    });
-  }
-
   addInstruction() {
-    this.instructions.push(this.fb.control(''));
+    this.instructions.push(this.fb.control('', Validators.required));
   }
 
   addIngredient() {
-    this.ingredients.push(this.createIngredient());
+    this.ingredientsArray.push(this.fb.group({
+      ingredient: ['', Validators.required],
+      quantity: ['', Validators.required]
+    }));
+  }
+
+  removeInstruction(index: number) {
+    this.instructions.removeAt(index);
   }
 
   removeIngredient(index: number) {
-    this.ingredients.removeAt(index);
+    this.ingredientsArray.removeAt(index);
   }
 
-  handleSubmit() {
+  onSubmit() {
     if (this.recipeForm.valid) {
-      const recipe: Recipe = this.recipeForm.value;
-      this.recipeService.createRecipe(recipe).subscribe({
-        next: (newRecipe) => {
-          console.log('Recipe created successfully:', newRecipe);
-          // Optionally reset the form or navigate to another page
+      const formValue = this.recipeForm.value;
+      const recipe: Recipe = {
+        ...formValue,
+        ingredients: formValue.ingredients.map((ingredientFormValue: any) => ({
+          ingredient: ingredientFormValue.ingredient,
+          quantity: ingredientFormValue.quantity
+        })),
+        createdAt: new Date()
+      };
+
+      this.recipeService.createRecipe(recipe).subscribe(
+        response => {
+          console.log('Recipe created successfully:', response);
         },
-        error: (error) => {
+        error => {
           console.error('Error creating recipe:', error);
         }
-      });
+      );
+    } else {
+      console.log('Form is invalid');
     }
   }
 }

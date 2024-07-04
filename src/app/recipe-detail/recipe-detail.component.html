@@ -6,7 +6,7 @@
     </ul>
     <h3>Ingredients</h3>
     <ul>
-      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient.name }}: {{ ingredient.quantity }}</li>
+      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>
     </ul>
     <h3>Nutrition</h3>
     <p>Calories: {{ recipe?.nutrition?.calories }}</p>
