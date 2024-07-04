@@ -10,7 +10,7 @@ import { IngredientAddComponent } from '../ingredient-add/ingredient-add.compone
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent, RecipeAddComponent, IngredientAddComponent],
+  imports: [RecipeListComponent, CommonModule, FilterPipe, FormsModule, RecipeComponent, SearchComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AdminComponent } from './admin/admin.component';
 
 export const routes: Routes = [
     //Generate a route for the home page
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'profile', component: ProfileComponent },
+    {path: 'admin', component: AdminComponent, title: 'Admin'},
     {path:'', component: WelcomeComponent, title: 'Welcome'}
 ];
