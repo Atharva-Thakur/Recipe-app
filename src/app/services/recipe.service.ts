@@ -1,5 +1,5 @@
 import { Injectable, Signal, signal } from '@angular/core';
-import { Recipe } from './models/recipe.model';
+import { Recipe } from '../models/recipe.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getAllRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.apiUrl);
+    return this.http.get<Recipe[]>(this.apiUrl,{ withCredentials: true });
   }
 
   getRecipeById(id: string): Observable<Recipe> {
