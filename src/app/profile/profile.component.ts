@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { StorageService } from '../services/storage.service';
+import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [ShoppingListComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

@@ -1,0 +1,22 @@
+<div>
+    <h2>Shopping List</h2>
+    <div *ngIf="shoppingList.id">
+      <h3>{{ shoppingList.id }}</h3>
+      <ul>
+        <li *ngFor="let item of shoppingList.items">
+          {{ item.ingredient }}: {{ item.quantity }}
+          <button (click)="deleteItemFromShoppingList(item.ingredient)">Delete</button>
+        </li>
+      </ul>
+      </div>
+      <div>
+        <input [(ngModel)]="newItem.ingredient" placeholder="Ingredient">
+        <input [(ngModel)]="newItem.quantity" placeholder="Quantity">
+        <button (click)="addItemToShoppingList()">Add Item</button>
+      </div>
+  
+    <div *ngIf="!shoppingList.id">
+      <button (click)="addShoppingList()">Create Shopping List</button>
+    </div>
+  </div>
+  
