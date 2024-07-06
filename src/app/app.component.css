@@ -1,0 +1,151 @@
+/* Google Fonts Import Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c1f7f5;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px 15px 5px 15px;
+  border-radius: 12px;
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  list-style: none;
+  margin: 0 12px;
+}
+
+.nav-links li a {
+  position: relative;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.nav-links li a:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #34efdf;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.nav-links li a:hover:before {
+  width: 100%;
+}
+
+.nav-links li.center a:before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li.upward a:before {
+  width: 100%;
+  bottom: -5px;
+  opacity: 0;
+}
+
+.nav-links li.upward a:hover:before {
+  bottom: 0px;
+  opacity: 1;
+}
+
+.nav-links li.forward a:before {
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav-links li.forward a:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Ensure anchor tags inside buttons have the correct color */
+.auth-buttons a {
+    color: inherit; /* Inherit the color from the parent element */
+    text-decoration: none; /* Remove the underline */
+    display: inline-block; /* Ensure the anchor fills the button */
+    width: 100%;
+    height: 100%;
+    line-height: normal; /* Reset the line height */
+    padding: 9px 18px; /* Add padding to match the button */
+    box-sizing: border-box; /* Ensure padding is included in the size */
+  }
+  
+  .auth-buttons .login-btn,
+  .auth-buttons .signup-btn,
+  .auth-buttons .logout-btn {
+    padding: 0; /* Remove padding from the button itself */
+    border: none; /* Remove border from button */
+    background: none; /* Remove background from button */
+    cursor: pointer; /* Pointer cursor for button */
+  }
+  
+  .auth-buttons .login-btn a,
+  .auth-buttons .signup-btn a {
+    background-color: #16a085; /* Button background color */
+    color: #fff; /* Button text color */
+    border-radius: 10px; /* Rounded corners */
+    transition: background 0.3s ease; /* Smooth transition */
+    text-align: center; /* Center text */
+  }
+  
+  .auth-buttons .login-btn a:hover,
+  .auth-buttons .signup-btn a:hover {
+    background-color: #28c7ba; /* Hover effect */
+  }
+  
+  .auth-buttons .logout-btn a {
+    background-color: #ff7675; /* Button background color */
+    color: #fff; /* Button text color */
+    border-radius: 8px; /* Rounded corners */
+    transition: background 0.3s ease; /* Smooth transition */
+    text-align: center; /* Center text */
+  }
+  
+  .auth-buttons .logout-btn a:hover {
+    background-color: #ff4945; /* Hover effect */
+  }
+  
+  .auth-buttons .profile-name a {
+    color: #333; /* Profile name color */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Font size */
+    font-weight: 500; /* Font weight */
+  }
+  
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
