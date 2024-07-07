@@ -9,7 +9,7 @@ import { AuthService } from './services/auth.service';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'recipe-webapp';

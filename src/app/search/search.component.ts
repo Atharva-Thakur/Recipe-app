@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [],
+  imports: [FontAwesomeModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
