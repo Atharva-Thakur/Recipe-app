@@ -3,4 +3,8 @@
     <h2 class="recipe-heading"><a [routerLink]="['/details',recipe.id]">{{ recipe.title }}</a></h2>
     <p class="recipe-description">{{ recipe.description }}</p>
     <!-- <a [routerLink]="['/details',recipe.id]">Get recipe</a> -->
+     @if(isAdmin){
+        <button (click)="onDelete(recipe.id)" class="btn btn-danger">Delete</button>
+     }
+    
 </section>

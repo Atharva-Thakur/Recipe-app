@@ -63,6 +63,21 @@ button.primary:hover {
     background-color: var(--secondary-color);
 }
 
+.btn-danger {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .recipe {
