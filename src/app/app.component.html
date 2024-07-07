@@ -2,9 +2,6 @@
   <div class="navbar">
     <a href="#" class="navbar-brand">Recipe-App</a>
     <ul class="nav-links" routerLinkActive="active">
-      <li>
-        <a href="/home" class="center" routerLink="home">Home </a>
-      </li>
       @if (showAdminBoard) {
         <li class="nav-item">
           <a href="/admin" class="upward" routerLink="admin">Admin</a>
@@ -12,7 +9,7 @@
       }
       @if (isLoggedIn) {
         <li class="nav-item">
-          <a href="/recipe" class="forward" routerLink="recipe">User</a>
+          <a href="/recipe" class="forward" routerLink="recipe">Recipes</a>
         </li>
       }
     </ul>
@@ -22,14 +19,6 @@
         <button class="login-btn"><a href="/login" routerLink="login">Login</a></button>
         <button class="signup-btn"><a href="/register" routerLink="register">Sign Up</a></button>
       </div>
-      <!-- <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-        </li>
-        <li class="nav-item">
-          <a href="/login" class="nav-link" routerLink="login">Login</a>
-        </li>
-      </ul> -->
     } @else {
 
       <div class="auth-buttons">
