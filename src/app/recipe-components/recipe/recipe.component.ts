@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Recipe } from '../models/recipe.model';
+import { Recipe } from '../../models/recipe.model';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { RecipeService } from '../services/recipe.service';
-import { StorageService } from '../services/storage.service';
+import { RecipeService } from '../../services/recipe.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-recipe',

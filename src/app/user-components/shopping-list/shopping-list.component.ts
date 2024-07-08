@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingList, ShoppingListItem } from '../models/ShoppingList.model';
-import { ShoppingListService } from '../services/shopping-list.service';
-import { StorageService } from '../services/storage.service';
+import { ShoppingList, ShoppingListItem } from '../../models/ShoppingList.model';
+import { ShoppingListService } from '../../services/shopping-list.service';
+import { StorageService } from '../../services/storage.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

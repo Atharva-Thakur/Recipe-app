@@ -1,0 +1,6 @@
+<section class="results">
+    @for(recipe of recipeList | appFilter: searchText; track recipe){
+      <app-recipe [recipe]="recipe"></app-recipe>
+
+    }
+</section>

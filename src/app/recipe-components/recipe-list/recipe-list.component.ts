@@ -1,10 +1,10 @@
 import { Component, Input, Signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeService } from '../services/recipe.service';
-import { Recipe } from '../models/recipe.model';
+import { RecipeService } from '../../services/recipe.service';
+import { Recipe } from '../../models/recipe.model';
 import { RecipeComponent } from '../recipe/recipe.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { FilterPipe } from '../pipes/filter.pipe';
+import { FilterPipe } from '../../pipes/filter.pipe';
 @Component({
   selector: 'app-recipe-list',
   standalone: true,

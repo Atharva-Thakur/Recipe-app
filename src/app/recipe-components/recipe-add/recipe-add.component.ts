@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RecipeService } from '../services/recipe.service';
+import { RecipeService } from '../../services/recipe.service';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Ingredient, Recipe } from '../models/recipe.model';
+import { Ingredient, Recipe } from '../../models/recipe.model';
 import { CommonModule } from '@angular/common';
-import { IngredientService } from '../services/ingredient.service';
+import { IngredientService } from '../../services/ingredient.service';
 @Component({
   selector: 'app-recipe-add',
   standalone: true,

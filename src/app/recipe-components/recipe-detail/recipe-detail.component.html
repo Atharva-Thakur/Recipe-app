@@ -1,0 +1,27 @@
+<div *ngIf="recipe" class="recipe-container">
+  <h2>{{ recipe.title }}</h2>
+  <p>{{ recipe.description }}</p>
+  <h3>Instructions</h3>
+  <ul>
+    @for(instruction of recipe.instructions; track instruction){
+      <li>{{ instruction }}</li>
+    }
+    @empty {
+      <li>There are no instructions.</li>
+    }
+  </ul>
+  <h3>Ingredients</h3>
+  <ul>
+    @for(ingredient of recipe.ingredients;track ingredient){
+      <li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>
+    }
+    @empty {
+      <li>There are no ingredients.</li>
+    }
+  </ul>
+  <h3>Nutrition</h3>
+  <p>Calories: {{ recipe.nutrition.calories }}</p>
+  <p>Fat: {{ recipe.nutrition.fats }}</p>
+  <p>Carbs: {{ recipe.nutrition.carbs }}</p>
+  <p>Protein: {{ recipe.nutrition.proteins }}</p>
+</div>

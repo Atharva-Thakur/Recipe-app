@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
-import { WelcomeComponent } from './welcome/welcome.component';
-import { AdminComponent } from './admin/admin.component';
+import { HomeComponent } from './user-components/home/home.component';
+import { RecipeDetailComponent } from './recipe-components/recipe-detail/recipe-detail.component';
+import { LoginComponent } from './authentication-components/login/login.component';
+import { RegisterComponent } from './authentication-components/register/register.component';
+import { ProfileComponent } from './user-components/profile/profile.component';
+import { WelcomeComponent } from './user-components/welcome/welcome.component';
+import { AdminComponent } from './user-components/admin/admin.component';
 
 export const routes: Routes = [
     //Generate a route for the home page

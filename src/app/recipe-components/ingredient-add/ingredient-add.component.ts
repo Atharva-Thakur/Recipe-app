@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Ingredient } from '../models/recipe.model';
-import { IngredientService } from '../services/ingredient.service';
+import { Ingredient } from '../../models/recipe.model';
+import { IngredientService } from '../../services/ingredient.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
